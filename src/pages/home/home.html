@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Desafio 3 - App desafio - Chat
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <!--<button ion-button *ngIf="!user?.uid" (click)="login()">login</button>
+  <button ion-button *ngIf="user?.uid" (click)="logoff()">logoff</button>-->
+
+  <ion-list>
+  	<ion-item *ngFor=" let msg of messages | async" >
+  		<h4><b>{{msg?.user}}: </b></h4>
+  		<p> {{msg?.message}}</p>
+  	</ion-item>
+  </ion-list>
+</ion-content>
+
+<ion-footer>
+	<ion-item>
+		<ion-input id="msg" type="text" placeholder="Digite aqui..." [(ngModel)]="message"></ion-input>
+        <button ion-button clear item-right (click)="sendMessage(message)">Send</button>
+	</ion-item>
+</ion-footer>
